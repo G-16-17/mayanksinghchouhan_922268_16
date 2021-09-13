@@ -1,0 +1,14 @@
+apiVersion : v1
+kind : Pod
+metadata : 
+ name : greet-pod
+ labels: 
+  app : myapp 
+
+spec : 
+ containers : 
+ - name : greet-service
+   image : mscc1/helloworld
+   ports : 
+    - containerPort : 8080
+

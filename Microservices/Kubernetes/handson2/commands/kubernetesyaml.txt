@@ -1,0 +1,17 @@
+PS F:\adm21jf016\helloworld> kubectl apply -f service1.yaml
+pod/greet-pod created
+PS F:\adm21jf016\helloworld> Kubectl get pods
+NAME        READY   STATUS              RESTARTS   AGE
+greet-pod   0/1     ContainerCreating   0          24s
+service     1/1     Running             0          42m
+PS F:\adm21jf016\helloworld> Kubectl get pods
+NAME        READY   STATUS    RESTARTS   AGE
+greet-pod   1/1     Running   0          58s
+service     1/1     Running   0          42m
+PS F:\adm21jf016\helloworld> kubectl port-forward greet-pod 8080:8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Forwarding from [::1]:8080 -> 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080

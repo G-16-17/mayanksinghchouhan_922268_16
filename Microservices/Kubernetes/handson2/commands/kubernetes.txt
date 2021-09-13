@@ -1,0 +1,47 @@
+PS C:\Program Files\kubernetes> Minikube start
+😄  minikube v1.23.0 on Microsoft Windows 10 Pro 10.0.21996 Build 21996
+✨  Using the docker driver based on existing profile
+
+⛔  Docker Desktop only has 1850MiB available, you may encounter application deployment failures.
+💡  Suggestion:
+
+    1. Open the "Docker Desktop" menu by clicking the Docker icon in the system tray
+    2. Click "Settings"
+    3. Click "Resources"
+    4. Increase "Memory" slider bar to 2.25 GB or higher
+    5. Click "Apply & Restart"
+📘  Documentation: https://docs.docker.com/docker-for-windows/#resources
+
+👍  Starting control plane node minikube in cluster minikube
+🚜  Pulling base image ...
+🔄  Restarting existing docker container for "minikube" ...
+🐳  Preparing Kubernetes v1.22.1 on Docker 20.10.8 ...
+🔎  Verifying Kubernetes components...
+    ▪ Using image gcr.io/k8s-minikube/storage-provisioner:v5
+❗  Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 2.5168916s
+💡  Restarting the docker service may improve performance.
+🌟  Enabled addons: storage-provisioner, default-storageclass
+🏄  Done! kubectl is now configured to use "minikube" cluster and "default" namespace by default
+PS C:\Program Files\kubernetes> Kubectl get pods
+No resources found in default namespace.
+PS C:\Program Files\kubernetes> Kubectl run service --image mscc1/helloworld
+pod/service created
+PS C:\Program Files\kubernetes> Kubectl get pods
+NAME      READY   STATUS              RESTARTS   AGE
+service   0/1     ContainerCreating   0          12s
+PS C:\Program Files\kubernetes> Kubectl port-forward service 8080:8080
+error: unable to forward port because pod is not running. Current status=Pending
+PS C:\Program Files\kubernetes> Kubectl get pods
+NAME      READY   STATUS              RESTARTS   AGE
+service   0/1     ContainerCreating   0          96s
+PS C:\Program Files\kubernetes> Kubectl get pods
+NAME      READY   STATUS    RESTARTS   AGE
+service   1/1     Running   0          2m6s
+PS C:\Program Files\kubernetes> Kubectl port-forward service 8080:8080
+Forwarding from 127.0.0.1:8080 -> 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
+Handling connection for 8080
